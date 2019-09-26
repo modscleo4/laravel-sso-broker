@@ -22,6 +22,17 @@ class Broker extends \Jasny\SSO\Broker
         $this->saveToken();
     }
 
+    public function serverLoginPage()
+    {
+        $parameters = [
+            'return_url' => $this->getCurrentUrl(),
+            'broker' => $this->broker,
+            'session_id' => $this->getSessionId(),
+        ];
+
+        return $this->generateCommandUrl('loginForm', $parameters);
+    }
+
     /**
      * Attach client session to broker session in SSO server.
      *
@@ -104,6 +115,10 @@ class Broker extends \Jasny\SSO\Broker
         $query = '';
         if (!empty($parameters)) {
             $query = '?' . http_build_query($parameters);
+        }
+
+        if ($command == 'loginForm') {
+            return $this->url . '/loginForm' . $query;
         }
 
         return $this->url . '/api/sso/' . $command . $query;

@@ -9,12 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-pdo": "*",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "jasny/sso": "^0.3.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-permission": "^3.0"
+        "spatie/laravel-permission": "^3.0",
     },
     "require-dev": {
         "facade/ignition": "^1.4",
