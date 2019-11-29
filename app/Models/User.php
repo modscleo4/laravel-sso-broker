@@ -2,11 +2,29 @@
 
 namespace App\Models;
 
-use App\Models\DatabaseNotification;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * Class User
+ * @package App\Models
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin \Illuminate\Database\Query\Builder
+ *
+ * @property int id
+ * @property string name
+ * @property string email
+ * @property string phone
+ * @property string password
+ * @property Carbon password_change_at
+ * @property string remember_token
+ * @property string api_token
+ * @property Carbon email_verified_at
+ * @property Carbon created_at
+ * @property Carbon updated_at
+ */
 class User extends Authenticatable
 {
     use HasRoles;
